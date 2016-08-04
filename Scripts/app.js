@@ -1,8 +1,9 @@
 /**
- * this is a mini profile extended web application which is all about Md Mamunur Rahman 
+ * This is a mini profile extended web application which is all about Md Mamunur Rahman 
+ * 
+ * @FileName: app.js
  * @Author Md Mamunur Rahman
  * @student ID: 300872772
- * @Version 0.0.3 Added funtionality to show value of fields of form in console
  * @Last Update 04-August-2016
  * @website: http://mamun-miniportfolio-extended.azurewebsites.net
  * @description: this file is main javascript file for the website
@@ -21,6 +22,12 @@
 
     //FILE READING PROCESS HANDLING FOR PARAGRAPH GENERATION BEGIN+++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /**
+     * This function is for reading data from file
+     * 
+     * @method readData
+     * @return {void} 
+     */
     function readData() {
 
             // data loaded                                      everything is ok
@@ -30,12 +37,15 @@
             var paragraphs = paragraphFile.paragraphs;
 
             var counter=0;
+            //extracting data from object
             paragraphs.forEach(function (paragraph) {
-                paragraphsContainerFileName[counter]=paragraph.fileName;
+
                 var a = paragraph.paragraphDetail;
 	            if (paragraphElements[counter]) {
                         paragraphElements[counter].innerHTML = paragraph.paragraphDetail;
-	                    paragraphHeading[counter].innerHTML = paragraphsHeadingText[counter]
+	                    paragraphHeading[counter].innerHTML = paragraph.paragraphHeading;
+
+                        
                 }   
                 console.log(paragraph.paragraphDetail);
             counter++;
@@ -45,6 +55,12 @@
         } 
 
     }
+    /**
+     * This function is for connecting with file and to ope for file reading
+     * 
+     * @method readParagraphFile
+     * @return {void} 
+     */
     function readParagraphFile() {
         xhrParagraphDataFile = new XMLHttpRequest(); // create xhr object
 
