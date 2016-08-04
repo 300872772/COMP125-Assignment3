@@ -16,8 +16,6 @@
     // define objects, arrays and variabes
     var paragraphHeading = [];
     var paragraphElements = [];
-    var paragraphsContainerFileName = [];
-    var paragraphsHeadingText = [];
     var xhrParagraphDataFile;
 
     //FILE READING PROCESS HANDLING FOR PARAGRAPH GENERATION BEGIN+++++++++++++++++++
@@ -38,14 +36,10 @@
 
             var counter=0;
             //extracting data from object
-            paragraphs.forEach(function (paragraph) {
-
-                var a = paragraph.paragraphDetail;
+            paragraphs.forEach(function (paragraph) {                
 	            if (paragraphElements[counter]) {
+                    	paragraphHeading[counter].innerHTML = paragraph.paragraphHeading;
                         paragraphElements[counter].innerHTML = paragraph.paragraphDetail;
-	                    paragraphHeading[counter].innerHTML = paragraph.paragraphHeading;
-
-                        
                 }   
                 console.log(paragraph.paragraphDetail);
             counter++;
@@ -151,10 +145,13 @@
     //FORM HANDLING IN CONTACT PAGE END++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
+    /**
+     * This function binds paragraph element and headings
+     * 
+     * @method handlingParagraph
+     * @return {void} 
+     */
     function handlingParagraph() {
-
-        //readParagraphFile() ;
 
         //bonding ids with paragraphHeading arrays
         paragraphHeading[0] = document.getElementById("homeHeading");
@@ -171,20 +168,8 @@
         paragraphElements[3] = document.getElementById("blogsPara");
         paragraphElements[4] = document.getElementById("photographyPara");
         paragraphElements[5] = document.getElementById("contactPara");
-
-        // define your paragraphHeadingText array;
-      
-
-        // data for my Paragraph Heading
-        paragraphsHeadingText[0] = "WELCOME TO MY WORLD";
-        paragraphsHeadingText[1] = "MY PROJECTS";
-        paragraphsHeadingText[2] = "MINI BIOGRAPHY";
-        paragraphsHeadingText[3] = "MY BLOGS";
-        paragraphsHeadingText[4] = "MY PHOTOGRAPHY";
-        paragraphsHeadingText[5] = "CONTACT";
-
-
     }
+
     // app entry function
     function init() {
         formHandlingContactPage();
