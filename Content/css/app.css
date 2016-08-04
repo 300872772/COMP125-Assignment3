@@ -45,14 +45,14 @@ body {
     animation-name: logo1;
     animation-duration: 4s;
 }
-@-webkit-keyframes logo1 {
+/*@-webkit-keyframes logo1 {
     from {
         -webkit-transform: rotate(0deg);
     }
     to { 
         -webkit-transform: rotate(360deg);
     }
-}
+}*/
 
 /* Annimation 
 @keyframes logo1 {
